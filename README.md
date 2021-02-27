@@ -15,10 +15,10 @@ Must run locally (localhost:xxxx via webrick/unicorn etc..  not a 3rd party serv
 
 
 # Direction:
-Build three models called “owner”, “dogs” and “meals”.\
--	“owner” will consist of “first_name”, “last_name”, “email” and “phone_number” (an owner can have multiple dogs) Email must be unique.\
--	“dogs” is a child of “owner” and consists of “name”, “age”, “color” and “weight” (dogs can have multiple meals)\
--	“meals” is a child of “dog” and represents when each dog was fed. It should contain “brand”, “quantity”, “finished” (T/F), and “finished_on” (timestamp) for when the dog was fed.\
+Build three models called “owner”, “dogs” and “meals”.
+-	“owner” will consist of “first_name”, “last_name”, “email” and “phone_number” (an owner can have multiple dogs) Email must be unique.
+-	“dogs” is a child of “owner” and consists of “name”, “age”, “color” and “weight” (dogs can have multiple meals)
+-	“meals” is a child of “dog” and represents when each dog was fed. It should contain “brand”, “quantity”, “finished” (T/F), and “finished_on” (timestamp) for when the dog was fed.
 
 # Build two view groups:
 Group 1 routed to /admin\ 
