@@ -1,5 +1,4 @@
-class Owner < ApplicationRecord 
-    has_many :dogs  
+class Owner < ApplicationRecord
     validates :email, uniqueness: true
 
 end
