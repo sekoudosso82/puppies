@@ -11,8 +11,7 @@ so we can see all the owners in our system and when each dog was fed.
 Ruby on Rails v:4.x+\
 MySQL – version your choice\
 GitHub\
-Must run locally (localhost:xxxx via webrick/unicorn etc..  not a 3rd party service like Heroku)\
-
+Must run locally (localhost:xxxx via webrick/unicorn etc..  not a 3rd party service like Heroku)
 
 # Direction:
 Build three models called “owner”, “dogs” and “meals”.
