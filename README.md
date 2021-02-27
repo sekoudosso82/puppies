@@ -22,13 +22,13 @@ Build three models called “owner”, “dogs” and “meals”.
 
 # Build two view groups:
 Group 1 routed to /admin\ 
-A view which allows a user to add/edit/delete an “owner”\
-A view which allows a user to add/edit/delete a “dog” and select it’s owner\
-A view which allows a user add/edit/delete a “meal” associated with a dog\
+A view which allows a user to add/edit/delete an “owner”
+A view which allows a user to add/edit/delete a “dog” and select it’s owner
+A view which allows a user add/edit/delete a “meal” associated with a dog
 
 # Group 2 routed to /reports
-	A view which lists dogs grouped by owner and some method to sort (developer choice)\
-	Ability to click on a single dog and view all the meals that dog has been fed (sorted by most recent first). All the meal details should be visible and     meals that are not “finished” should be denoted in the list. \
+	A view which lists dogs grouped by owner and some method to sort (developer choice)
+	Ability to click on a single dog and view all the meals that dog has been fed (sorted by most recent first). All the meal details should be visible and     meals that are not “finished” should be denoted in the list. 
 
 # Running the App
 make sure you are in the director for the Rails app
