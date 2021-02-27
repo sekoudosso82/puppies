@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_27_224309) do
+ActiveRecord::Schema.define(version: 2021_02_27_225124) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -44,6 +44,17 @@ ActiveRecord::Schema.define(version: 2021_02_27_224309) do
     t.index ["owner_id"], name: "index_dogs_on_owner_id"
   end
 
+  create_table "meals", force: :cascade do |t|
+    t.integer "dog_id", null: false
+    t.string "brand"
+    t.float "quantity"
+    t.boolean "finished"
+    t.date "finished_on"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dog_id"], name: "index_meals_on_dog_id"
+  end
+
   create_table "owners", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -55,4 +66,5 @@ ActiveRecord::Schema.define(version: 2021_02_27_224309) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "dogs", "owners"
+  add_foreign_key "meals", "dogs"
 end
