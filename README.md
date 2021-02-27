@@ -49,7 +49,7 @@ Helpful Commands
 
 rails new puppies\
 cd puppies\
-create a new resource:\
+create a new resource:
 
 rails g resource owner first_name last_name email\
 rails g resource dogs owner:belongs_to name age:integer color weight:float\
