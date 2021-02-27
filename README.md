@@ -47,8 +47,8 @@ Helpful Commands
 rails new puppies
 create a new resource:
 
-rails g resource owner first_name last_name email
-rails g resource dogs owner:belongs_to name age:integer color weight:float
+rails g resource owner first_name last_name email\
+rails g resource dogs owner:belongs_to name age:integer color weight:float\
 rails g resource meals dog:belongs_to brand quantity:float finished:boolean finished_on:date
 
 
