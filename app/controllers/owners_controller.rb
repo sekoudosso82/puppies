@@ -13,9 +13,13 @@ class OwnersController < ApplicationController
     end 
   
     def create 
-        @owner = owner.create(owner_params)
-        # redirect_to  owner_path(@owner)
-        redirect_to  @owner
+        @owner = Owner.create(owner_params)
+        if @owner.valid? 
+            redirect_to owner_path(@owner) 
+        else
+            flash[:errors] = @owner.errors.full_messages 
+            redirect_to new_owner_path() 
+        end  
     end 
     
     def edit 
@@ -23,8 +27,12 @@ class OwnersController < ApplicationController
     
     def update
         @owner.update(owner_params)
-        # redirect_to owner_path(@owner)
-        redirect_to @owner
+        if @owner.update(owner_params)
+            redirect_to owner_path(@owner.id) 
+        else
+            flash[:errors] = @owner.errors.full_messages 
+            redirect_to edit_owner_path(@owner) 
+        end  
     end 
   
     def destroy 
@@ -35,10 +43,10 @@ class OwnersController < ApplicationController
     private 
 
     def owner_params 
-        params.require(:owner).permit(:first_name, :last_name, :email, :phone_number)
+        params.require(:owner).permit(:first_name, :last_name, :email, :phone_number, :owner_image)
     end 
 
     def find_owner
-        @owner = owner.find(params[:id]) 
+        @owner = Owner.find(params[:id]) 
     end 
 end

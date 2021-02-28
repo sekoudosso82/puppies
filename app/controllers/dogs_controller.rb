@@ -4,25 +4,39 @@ class DogsController < ApplicationController
     def index 
         @dogs = Dog.all
     end 
-
+    
     def show 
     end
     
     def new 
-        @dog = dog.new
+        @dog = Dog.new
+        @owners = Owner.all
     end 
   
     def create 
-        @dog = dog.create(dog_params)
-        redirect_to  @dog
+        @dog = Dog.create(dog_params)
+        if @dog.valid? 
+            redirect_to dog_path(@dog) 
+        else
+            flash[:errors] = @dog.errors.full_messages 
+            redirect_to new_dog_path() 
+        end  
+        # redirect_to  @dog
     end 
     
     def edit 
+        @owners = Owner.all
     end 
     
     def update
         @dog.update(dog_params)
-        redirect_to @dog
+        if @dog.update(dog_params)
+            redirect_to dog_path(@dog.id) 
+        else
+            flash[:errors] = @dog.errors.full_messages 
+            redirect_to edit_dog_path(@dog) 
+        end  
+        # redirect_to @dog
     end 
   
     def destroy 
@@ -33,10 +47,10 @@ class DogsController < ApplicationController
     private 
 
     def dog_params 
-        params.require(:dog).permit(:name, :age, :color, :weight)
+        params.require(:dog).permit(:name, :age, :color, :weight, :dog_image, :owner_id)
     end 
 
     def find_dog
-        @dog = dog.find(params[:id]) 
+        @dog = Dog.find(params[:id]) 
     end 
 end

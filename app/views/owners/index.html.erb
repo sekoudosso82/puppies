@@ -1,0 +1,19 @@
+
+<div class="index-container">
+    <%= button_to('Create New owner!', new_owner_path, method: :get ) %>
+
+    
+    <%  @owners.each do |owner| %>
+    <div class="index-tile">
+        <h2><%= link_to "more detail", owner %></h2>
+        <h3><%= image_tag(owner.owner_image, class: "index-img") %></h3>  
+        <h3>First Name: <%= owner.first_name %></h3> 
+        <h3>Last Name: <%= owner.last_name %></h3> 
+        <h3>Email: <%= owner.email %></h3> 
+        <h3>Phone number: <%= owner.phone_number %></h3> 
+  
+        <%= button_to "Delete owner", owner_path(owner), method: :delete %>
+        <%= button_to "Edit owner", edit_owner_path(owner), method: :get %>        
+    </div>
+    <%  end  %>
+</div>
