@@ -6,6 +6,7 @@ class OwnersController < ApplicationController
     end 
 
     def show 
+        @dogs = Dog.all.select{|dog| dog.owner.id ===  @owner.id}
     end
     
     def new 

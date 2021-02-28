@@ -9,4 +9,15 @@
     <%= link_to "Delete owner //", owner_path(@owner), method: :delete %>
     <%= link_to "Edit owner", edit_owner_path(@owner) %>
     
+    <h4> DOGS OWNED </h4>
+    <% @dogs.each do |dog| %>
+
+    <h3><%= image_tag(dog.dog_image, class: "index-img") %></h3>  
+    <h3> Name: <%= dog.name %></h3> 
+    <h3> Age: <%= dog.age %></h3> 
+    <h3> Color: <%= dog.color %></h3> 
+    <h3> Weight: <%= dog.weight %></h3>    <%= link_to "more detail /// ", dog_path(dog) %>
+    <%= link_to "Delete dog////", dog_path(dog), method: :delete %>
+    <%= link_to "Edit dog", edit_dog_path(dog), method: :get %>
+    <% end %>
 </div>
