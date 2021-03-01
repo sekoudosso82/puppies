@@ -1,0 +1,27 @@
+<%= link_to "CANCEL!!!", meals_path %>
+
+<% if flash[:errors] %>
+    <% flash[:errors].each do |e| %>
+        <%= e %>
+    <% end %>
+<% end %>
+
+<%= form_for @meal do |f| %>
+
+    <%= f.label :brand %>
+    <%= f.text_field :brand %> <br>
+
+    <%= f.label :quantity %>
+    <%= f.text_field :quantity %> <br>
+
+    <%= f.label :finished %>
+    <%= f.select :finished, options_for_select([['T', true], ['F', false]])%>  <br>  
+
+    <%= f.label :finished_on %>
+    <%= f.text_field :finished_on %> <br> 
+
+    <%= f.label :dog_id %>
+    <%= f.collection_select :dog_id, @dogs, :id, :name %>
+
+    <%= f.submit %>
+<% end %>

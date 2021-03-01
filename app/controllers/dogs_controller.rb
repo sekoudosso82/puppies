@@ -6,6 +6,8 @@ class DogsController < ApplicationController
     end 
     
     def show 
+        @meals = Meal.all.select{|meal| meal.dog.id ===  @owner.id}
+
     end
     
     def new 
@@ -36,7 +38,6 @@ class DogsController < ApplicationController
             flash[:errors] = @dog.errors.full_messages 
             redirect_to edit_dog_path(@dog) 
         end  
-        # redirect_to @dog
     end 
   
     def destroy 

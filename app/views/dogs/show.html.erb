@@ -10,6 +10,15 @@
     <%= link_to "Delete dog //", dog_path(@dog), method: :delete %>
     <%= link_to "Edit dog", edit_dog_path(@dog) %> 
 
-    
+    <h4> FED RECORD </h4>
+    <% @meals.each do |meal| %>
+
+    <h3>Brand: <%= meal.brand %></h3> 
+    <h3>Quantity: <%= meal.quantity %></h3> 
+    <h3>Finished: <%= meal.finished %></h3> 
+    <h3>Finished on: <%= meal.finished_on %></h3>     <%= link_to "more detail /// ", meal_path(meal) %>
+    <%= link_to "Delete meal////", meal_path(meal), method: :delete %>
+    <%= link_to "Edit meal", edit_meal_path(meal), method: :get %>
+    <% end %>
     
 </div>

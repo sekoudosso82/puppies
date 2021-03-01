@@ -1,0 +1,18 @@
+
+<div class="index-container">
+    <%= button_to('Create New meal!', new_meal_path, method: :get ) %>
+
+    
+    <%  @meals.each do |meal| %>
+    <div class="index-tile">
+        <h2><%= link_to "more detail", meal %></h2>
+        <h3>Brand: <%= meal.brand %></h3> 
+        <h3>Quantity: <%= meal.quantity %></h3> 
+        <h3>Finished: <%= meal.finished %></h3> 
+        <h3>Finished on: <%= meal.finished_on %></h3> 
+  
+        <%= button_to "Delete meal", meal_path(meal), method: :delete %>
+        <%= button_to "Edit meal", edit_meal_path(meal), method: :get %>        
+    </div>
+    <%  end  %>
+</div>
