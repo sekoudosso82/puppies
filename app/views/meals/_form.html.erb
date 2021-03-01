@@ -17,8 +17,8 @@
     <%= f.label :finished %>
     <%= f.select :finished, options_for_select([['T', true], ['F', false]])%>  <br>  
 
-    <%= f.label :finished_on %>
-    <%= f.text_field :finished_on %> <br> 
+    <!-- <%= f.label :finished_on %>
+    <%= f.text_field :finished_on %> <br>  -->
 
     <%= f.label :dog_id %>
     <%= f.collection_select :dog_id, @dogs, :id, :name %>

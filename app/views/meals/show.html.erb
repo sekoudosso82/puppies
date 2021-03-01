@@ -3,7 +3,7 @@
     <h3>Brand: <%= @meal.brand %></h3> 
     <h3>Quantity: <%= @meal.quantity %></h3> 
     <h3>Finished: <%= @meal.finished %></h3> 
-    <h3>Finished on: <%= @meal.finished_on %></h3> 
+    <h3>Finished on: <%= Time.zone.parse("#{@meal.updated_at}") %></h3> 
 
     <%= link_to "Delete meal //", meal_path(@meal), method: :delete %>
     <%= link_to "Edit meal", edit_meal_path(@meal) %>

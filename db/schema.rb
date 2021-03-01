@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_27_225124) do
+ActiveRecord::Schema.define(version: 2021_03_01_012515) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -48,8 +48,8 @@ ActiveRecord::Schema.define(version: 2021_02_27_225124) do
     t.integer "dog_id", null: false
     t.string "brand"
     t.float "quantity"
-    t.boolean "finished"
-    t.date "finished_on"
+    t.boolean "finished", default: false
+    t.datetime "finished_on"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["dog_id"], name: "index_meals_on_dog_id"

@@ -45,7 +45,7 @@ class MealsController < ApplicationController
     private 
 
     def meal_params 
-        params.require(:meal).permit(:brand, :quantity, :finished_on, :dog_id)
+        params.require(:meal).permit(:brand, :quantity, :finished, :finished_on, :dog_id)
     end 
 
     def find_meal
