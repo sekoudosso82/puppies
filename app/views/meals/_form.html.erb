@@ -1,4 +1,4 @@
-<%= link_to "CANCEL!!!", meals_path %>
+<%= link_to "CANCEL!!!", owner_dog_path %>
 
 <% if flash[:errors] %>
     <% flash[:errors].each do |e| %>
@@ -7,6 +7,7 @@
 <% end %>
 
 <%= form_for @meal do |f| %>
+    <%= f.hidden_field :dog_id, value: (@meal.dog_id).to_i %>
 
     <%= f.label :brand %>
     <%= f.text_field :brand %> <br>

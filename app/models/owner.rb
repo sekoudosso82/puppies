@@ -4,7 +4,6 @@ class Owner < ApplicationRecord
 
     has_one_attached :owner_image 
 
-
     validates :email, uniqueness: true
 
 end

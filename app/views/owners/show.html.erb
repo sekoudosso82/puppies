@@ -1,10 +1,24 @@
 <div class="container">
-    <%= link_to "Go Main page", owners_path %>
-    <h3><%= image_tag(@owner.owner_image, class: "index-img") %></h3>  
-    <h3> First Name: <%= @owner.first_name %></h3> 
-    <h3> Last Name: <%= @owner.last_name %></h3> 
-    <h3> Email: <%= @owner.email %></h3> 
-    <h3> Phone number: <%= @owner.phone_number %></h3>
+    <div class="linkDivColorRed">
+        <%= link_to "Go Home page", owners_path %>
+    </div>
+    <div class="linkDivColorGreen">
+        <%= link_to "Add new dog", new_owner_dog_path({:owner_id => @owner.id}), method: :get  %>
+    </div>
+    <% if @owner.owner_image.attachment != nil %> 
+        <h3><%= image_tag(@owner.owner_image, class: "index-img") %></h3>
+        <h3> First Name: <%= @owner.first_name %></h3> 
+        <h3> Last Name: <%= @owner.last_name %></h3> 
+        <h3> Email: <%= @owner.email %></h3> 
+        <h3> Phone number: <%= @owner.phone_number %></h3>
+    <% else %>
+        <h3> First Name: <%= @owner.first_name %></h3> 
+        <h3> Last Name: <%= @owner.last_name %></h3> 
+        <h3> Email: <%= @owner.email %></h3> 
+        <h3> Phone number: <%= @owner.phone_number %></h3>
+    <% end %>
+
+
 
     <%= link_to "Delete owner //", owner_path(@owner), method: :delete %>
     <%= link_to "Edit owner", edit_owner_path(@owner) %>
@@ -12,12 +26,20 @@
     <h4> DOGS OWNED </h4>
     <% @dogs.each do |dog| %>
 
-    <h3><%= image_tag(dog.dog_image, class: "index-img") %></h3>  
-    <h3> Name: <%= dog.name %></h3> 
-    <h3> Age: <%= dog.age %></h3> 
-    <h3> Color: <%= dog.color %></h3> 
-    <h3> Weight: <%= dog.weight %></h3>    <%= link_to "more detail /// ", dog_path(dog) %>
-    <%= link_to "Delete dog////", dog_path(dog), method: :delete %>
-    <%= link_to "Edit dog", edit_dog_path(dog), method: :get %>
+        <% if dog.dog_image.attachment != nil %> 
+            <h3><%= image_tag(dog.dog_image, class: "index-img") %></h3> 
+            <h3> Name: <%= dog.name %></h3> 
+            <h3> Age: <%= dog.age %></h3> 
+            <h3> Color: <%= dog.color %></h3> 
+            <h3> Weight: <%= dog.weight %></h3>    <%= link_to "more detail /// ", dog_path(dog) %>
+        <% else %>
+            <h3> Name: <%= dog.name %></h3> 
+            <h3> Age: <%= dog.age %></h3> 
+            <h3> Color: <%= dog.color %></h3>
+            <h3> Weight: <%= dog.weight %></h3>    <%= link_to "more detail /// ", dog_path(dog) %>
+        <% end %>
+
+        <%= link_to "Delete dog////", dog_path(dog), method: :delete %>
+        <%= link_to "Edit dog", edit_dog_path(dog), method: :get %>
     <% end %>
 </div>

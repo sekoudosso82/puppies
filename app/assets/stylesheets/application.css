@@ -62,10 +62,10 @@ body {
   }
   
   h2 {
-    // font-size: 2em;
+    /* font-size: 2em; */
     font-size: 2vw;
     font-family: 'Molle';
-    // text-shadow: 2px 2px rgb(15, 217, 240);
+    /* text-shadow: 2px 2px rgb(15, 217, 240); */
   }
   
   
@@ -73,7 +73,7 @@ body {
     font-size: 1em;
     font-family: 'Molle';
     text-decoration: underline;
-    // text-shadow: 1px 1px rgb(15, 217, 240);
+    /* text-shadow: 1px 1px rgb(15, 217, 240); */
   }
   
   .index-img {
@@ -98,7 +98,7 @@ body {
     justify-content: space-around;
     align-items: center;
     background-color: rgba(255, 255, 255, 0.5);
-    // background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.8));
+    /* background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.8)); */
     border-radius: 25px;
   }
   
@@ -114,7 +114,7 @@ body {
   
   .index-tile:hover {
     background-color: rgb(15, 217, 240);
-    // border: 5px solid rgb(15, 217, 240);
+    /* border: 5px solid rgb(15, 217, 240); */
   }
   
   .container {
@@ -129,4 +129,12 @@ body {
   .form-container {
     text-align: center;
     min-height: 400px;
+  }
+  .linkDivColorGreen{
+    background-color: green;
+    max-width: 10%;
+  }
+  .linkDivColorRed{
+    background-color:red;
+    max-width: 10%;
   }

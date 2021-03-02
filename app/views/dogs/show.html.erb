@@ -1,11 +1,26 @@
 <div class="container">
-    <%= link_to "Go Main page", dogs_path %>
-    <h3><%= image_tag(@dog.dog_image, class: "index-img") %></h3>  
-    <h3> Name: <%= @dog.name %></h3> 
-    <h3> Age: <%= @dog.age %></h3> 
-    <h3> Color: <%= @dog.color %></h3> 
-    <h3> Weight: <%= @dog.weight %></h3>
-    <h3> Owner: <%= @dog.owner.first_name %></h3>
+    <div class="linkDivColorRed">
+        <%= link_to "Go Main page", dogs_path %>
+    </div>
+    <div class="linkDivColorGreen">
+        <%= link_to "fed dog", new_dog_meal_path({:dog_id => @dog.id}), method: :get  %>
+    </div>
+    
+    <% if @dog.dog_image.attachment != nil %> 
+        <h3><%= image_tag(@dog.dog_image, class: "index-img") %></h3>  
+        <h3> Name: <%= @dog.name %></h3> 
+        <h3> Age: <%= @dog.age %></h3> 
+        <h3> Color: <%= @dog.color %></h3> 
+        <h3> Weight: <%= @dog.weight %></h3>
+        <h3> Owner: <%= @dog.owner.first_name %></h3>
+    <% else %> 
+        <h3> Name: <%= @dog.name %></h3> 
+        <h3> Age: <%= @dog.age %></h3> 
+        <h3> Color: <%= @dog.color %></h3> 
+        <h3> Weight: <%= @dog.weight %></h3>
+        <h3> Owner: <%= @dog.owner.first_name %></h3>
+    <% end %> 
+
 
     <%= link_to "Delete dog //", dog_path(@dog), method: :delete %>
     <%= link_to "Edit dog", edit_dog_path(@dog) %> 
@@ -16,9 +31,9 @@
     <h3>Brand: <%= meal.brand %></h3> 
     <h3>Quantity: <%= meal.quantity %></h3> 
     <h3>Finished: <%= meal.finished %></h3> 
-    <h3>Finished on: <%= meal.finished_on %></h3>     <%= link_to "more detail /// ", meal_path(meal) %>
-    <%= link_to "Delete meal////", meal_path(meal), method: :delete %>
-    <%= link_to "Edit meal", edit_meal_path(meal), method: :get %>
+    <h3>Finished on: <%= meal.finished_on %></h3>     <%= link_to "more detail /// ", dog_meal_path(meal) %>
+    <%= link_to "Delete meal////", dog_meal_path(meal), method: :delete %>
+    <%= link_to "Edit meal", edit_dog_meal_path(meal), method: :get %>
     <% end %>
     
 </div>

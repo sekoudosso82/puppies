@@ -1,4 +1,4 @@
-<%= link_to "CANCEL!!!", dogs_path %>
+<%= link_to "CANCEL!!!", owners_path %>
 
 <% if flash[:errors] %>
     <% flash[:errors].each do |e| %>
@@ -7,6 +7,8 @@
 <% end %>
 
 <%= form_for @dog do |f| %>
+    <%= f.hidden_field :owner_id, value: (@owner_id) %>
+
     <%= f.label :dog_image, "dog cover image" %>
     <%= f.file_field :dog_image %> <br>
 
@@ -22,8 +24,6 @@
     <%= f.label :weight %>
     <%= f.text_field :weight %> <br>
 
-    <%= f.label :owner_id %>
-    <%= f.collection_select :owner_id, @owners, :id, :first_name %>
 
     <%= f.submit %>
 <% end %>

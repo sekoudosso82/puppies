@@ -5,7 +5,7 @@ class CreateMeals < ActiveRecord::Migration[6.0]
       t.string :brand
       t.float :quantity
       t.boolean :finished
-      t.date :finished_on
+      t.timestamps :finished_on
 
       t.timestamps
     end
