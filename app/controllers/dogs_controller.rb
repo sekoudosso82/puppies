@@ -6,8 +6,9 @@ class DogsController < ApplicationController
     end 
     
     def show 
-        @meals = Meal.all.select{|meal| meal.dog.id ===  @dog.id}
 
+        @meals = Meal.all.select{|meal| meal.dog.id ===  @dog.id}
+        # byebug
     end
     
     def new 
@@ -31,16 +32,16 @@ class DogsController < ApplicationController
     end 
     
     def edit 
-        @owners = Owner.all
+        @owner_id = params[:owner_id].to_i
+        # byebug
     end 
     
     def update
-        @dog.update(dog_params)
         if @dog.update(dog_params)
-            redirect_to owner_dog_path(@dog.id) 
+            redirect_to owner_dog_path(@dog) 
         else
             flash[:errors] = @dog.errors.full_messages 
-            redirect_to edit_dog_path(@dog) 
+            redirect_to edit_owner_dog_path(@dog) 
         end  
     end 
   

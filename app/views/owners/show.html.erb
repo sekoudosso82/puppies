@@ -36,10 +36,12 @@
             <h3> Name: <%= dog.name %></h3> 
             <h3> Age: <%= dog.age %></h3> 
             <h3> Color: <%= dog.color %></h3>
-            <h3> Weight: <%= dog.weight %></h3>    <%= link_to "more detail /// ", dog_path(dog) %>
+            <h3> Weight: <%= dog.weight %></h3> 
+   
+            <%= link_to "more detail /// ", owner_dog_path({:owner_id => @owner.id, :id => dog.id}, method: :get) %>
         <% end %>
 
         <%= link_to "Delete dog////", dog_path(dog), method: :delete %>
-        <%= link_to "Edit dog", edit_dog_path(dog), method: :get %>
+        <%= link_to "Edit dog", edit_owner_dog_path({:owner_id => @owner.id, :id => dog.id}), method: :get  %>
     <% end %>
 </div>

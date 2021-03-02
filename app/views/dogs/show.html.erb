@@ -21,9 +21,8 @@
         <h3> Owner: <%= @dog.owner.first_name %></h3>
     <% end %> 
 
-
     <%= link_to "Delete dog //", dog_path(@dog), method: :delete %>
-    <%= link_to "Edit dog", edit_dog_path(@dog) %> 
+    <%= link_to "Edit dog", edit_owner_dog_path({:owner_id => @dog.owner_id, :id => @dog.id}), method: :get  %>
 
     <h4> FED RECORD </h4>
     <% @meals.each do |meal| %>

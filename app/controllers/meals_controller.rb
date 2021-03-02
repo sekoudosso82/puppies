@@ -9,17 +9,18 @@ class MealsController < ApplicationController
     end
     
     def new 
+        # byebug
+        @dog_id =  params[:dog_id].to_i
         @meal = Meal.new
-        @dogs = Dog.all
     end 
   
     def create 
         @meal = Meal.create(meal_params)
         if @meal.valid? 
-            redirect_to meal_path(@meal) 
+            redirect_to owner_dog_path(@meal.dog_id) 
         else
             flash[:errors] = @meal.errors.full_messages 
-            redirect_to new_meal_path() 
+            redirect_to  new_dog_meal_path()  
         end  
     end 
     
