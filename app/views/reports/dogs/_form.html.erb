@@ -1,0 +1,29 @@
+<%= link_to "CANCEL!!!", admin_owners_path %>
+
+<% if flash[:errors] %>
+    <% flash[:errors].each do |e| %>
+        <%= e %>
+    <% end %>
+<% end %>
+
+<%= form_for ([:admin_owner, @dog]) do |f| %>
+    <%= f.hidden_field :owner_id, value: (@owner_id) %>
+
+    <%= f.label :dog_image, "dog cover image" %>
+    <%= f.file_field :dog_image %> <br>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %> <br>
+
+    <%= f.label :age %>
+    <%= f.text_field :age %> <br> 
+
+    <%= f.label :color %>
+    <%= f.text_field :color %> <br> 
+
+    <%= f.label :weight %>
+    <%= f.text_field :weight %> <br>
+
+
+    <%= f.submit %>
+<% end %>
