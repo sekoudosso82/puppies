@@ -1,4 +1,4 @@
-<%= link_to "CANCEL!!!", admin_owners_path %>
+<!-- <%= link_to "CANCEL!!!", reports_owners_path %>
 
 <% if flash[:errors] %>
     <% flash[:errors].each do |e| %>
@@ -6,7 +6,7 @@
     <% end %>
 <% end %>
 
-<%= form_for ([:admin_owner, @dog]) do |f| %>
+<%= form_for ([:reports_owner, @dog]) do |f| %>
     <%= f.hidden_field :owner_id, value: (@owner_id) %>
 
     <%= f.label :dog_image, "dog cover image" %>
@@ -26,4 +26,4 @@
 
 
     <%= f.submit %>
-<% end %>
+<% end %> -->

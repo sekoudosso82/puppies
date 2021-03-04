@@ -1,10 +1,10 @@
 <div class="container">
     <div class="linkDivColorRed">
-        <%= link_to "Go Main page", admin_owner_path(@dog.owner.id) %>
+        <%= link_to "Go Main page", reports_dogs_path %>
     </div>
     <div class="linkDivColorGreen">
 
-        <%= link_to "fed dog", new_admin_dog_meal_path({:dog_id => @dog.id}), method: :get  %>
+        <!-- <%= link_to "fed dog", new_reports_dog_meal_path({:dog_id => @dog.id}), method: :get  %> -->
     </div>
     
     <% if @dog.dog_image.attachment != nil %> 
@@ -22,19 +22,25 @@
         <h3> Owner: <%= @dog.owner.first_name %></h3>
     <% end %> 
 
-    <%= link_to "Delete dog //", admin_owner_dog_path({:owner_id => @dog.owner_id, :id => @dog.id}), method: :delete %>
-    <%= link_to "Edit dog", edit_admin_owner_dog_path({:owner_id => @dog.owner_id, :id => @dog.id}), method: :get  %>
+    <!-- <%= link_to "Delete dog //", reports_owner_dog_path({:owner_id => @dog.owner_id, :id => @dog.id}), method: :delete %>
+    <%= link_to "Edit dog", edit_reports_owner_dog_path({:owner_id => @dog.owner_id, :id => @dog.id}), method: :get  %> -->
 
-    <h4> FED RECORD </h4>
+    <h4>********************************************************************* </h4>
+ <h4>**************************** FED RECORD  **************************** </h4>
+ <h4>********************************************************************* </h4>
+ 
     <% @meals.each do |meal| %>
 
         <h3>Brand: <%= meal.brand %></h3> 
         <h3>Quantity: <%= meal.quantity %></h3> 
         <h3>Finished: <%= meal.finished %></h3> 
-        <h3>Finished on: <%= meal.finished_on %></h3>     
-        <%= link_to "more detail /// ", admin_dog_meal_path(@dog.id, meal.id) %>
-        <%= link_to "Delete meal////", admin_dog_meal_path(@dog.id, meal.id), method: :delete %>
-        <%= link_to "Edit meal", edit_admin_dog_meal_path({:dog_id => @dog.id, :id => meal}), method: :get %>
+        <h3>Finished on: <%= meal.finished_on %></h3>  
+        <h4>********************************************************************* </h4>
+        <h4>********************************************************************* </h4>
+    
+        <!-- <%= link_to "more detail /// ", reports_dog_meal_path(@dog.id, meal.id) %>
+        <%= link_to "Delete meal////", reports_dog_meal_path(@dog.id, meal.id), method: :delete %>
+        <%= link_to "Edit meal", edit_reports_dog_meal_path({:dog_id => @dog.id, :id => meal}), method: :get %> -->
 
     <% end %>
     

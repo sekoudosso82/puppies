@@ -16,10 +16,10 @@ class Reports::OwnersController < ApplicationController
     def create 
         @owner = Owner.create(owner_params)
         if @owner.valid? 
-            redirect_to admin_owner_path(@owner) 
+            redirect_to reports_owner_path(@owner) 
         else
             flash[:errors] = @owner.errors.full_messages 
-            redirect_to new_admin_owner_path() 
+            redirect_to new_reports_owner_path() 
         end  
     end 
     
@@ -29,16 +29,16 @@ class Reports::OwnersController < ApplicationController
     def update
         @owner.update(owner_params)
         if @owner.update(owner_params)
-            redirect_to admin_owner_path(@owner.id) 
+            redirect_to reports_owner_path(@owner.id) 
         else
             flash[:errors] = @owner.errors.full_messages 
-            redirect_to  edit_admin_owner_path(@owner) 
+            redirect_to  edit_reports_owner_path(@owner) 
         end  
     end 
   
     def destroy 
         @owner.destroy 
-        redirect_to admin_owners_path
+        redirect_to reports_owners_path
     end 
 
     private 

@@ -1,12 +1,12 @@
 
 <div class="index-container">
     <div class="linkDivColorGreen">
-        <%= link_to 'Home page', owners_path  %>
+        <%= link_to 'Home page', reports_dogs_path  %>
     </div>
     
     <%  @dogs.each do |dog| %>
     <div class="index-tile">
-        <h2><%= link_to "more detail", dog %></h2>
+        <h2><%= link_to "more detail", reports_dog_path(dog.id) %></h2>
         <% if dog.dog_image.attachment != nil %> 
             <h3><%= image_tag(dog.dog_image, class: "index-img") %></h3>  
             <h3> Name: <%= dog.name %></h3> 
@@ -21,10 +21,6 @@
             <h3> Weight: <%= dog.weight %></h3>
             <h3> Owner: <%= dog.owner.first_name %></h3>
         <% end %> 
-
-
-        <%= button_to "Delete Dog", dog_path(dog), method: :delete %>
-        <%= button_to "Edit Dog", edit_dog_path(dog), method: :get %>        
     </div>
     <%  end  %>
 </div>
