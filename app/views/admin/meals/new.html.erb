@@ -1,0 +1,12 @@
+<div class="container form-container">
+    <h2>NEW MEAL</h2>
+    
+    <%= form_for @meal do |f| %>
+        <%= f.hidden_field :dog_id, value: (@dog_id) %>
+
+        <%= f.label :brand %>
+        <%= f.text_field :brand %> <br>
+        <%= f.submit %>
+    <% end %>
+
+</div>

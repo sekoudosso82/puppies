@@ -1,4 +1,4 @@
-class DogsController < ApplicationController 
+class Admin::DogsController < ApplicationController 
     before_action :find_dog, only: [:show, :edit, :update, :destroy]
 
     def index 
@@ -6,16 +6,15 @@ class DogsController < ApplicationController
     end 
     
     def show 
-
         @meals = Meal.all.select{|meal| meal.dog.id ===  @dog.id}
         # byebug
     end
     
     def new 
-        @dog = Dog.new
+        @owner = Owner.find params[:owner_id]
+        @dog = Dog.new(:owner_id=>@owner.id)
         @owner_id =  params[:owner_id].to_i
         # byebug
-        @owners = Owner.all
     end 
   
     def create 
@@ -23,12 +22,11 @@ class DogsController < ApplicationController
         @owner_id =  params[:dog][:owner_id].to_i
         # byebug
         if @dog.valid? 
-            redirect_to owner_dogs_path(@owner_id) 
+            redirect_to admin_owner_path(@dog.owner.id) 
         else
             flash[:errors] = @dog.errors.full_messages 
-            redirect_to  new_owner_dog_path() 
+            redirect_to  new_admin_owner_dog_path() 
         end  
-        # redirect_to  @dog
     end 
     
     def edit 
@@ -38,16 +36,16 @@ class DogsController < ApplicationController
     
     def update
         if @dog.update(dog_params)
-            redirect_to owner_dog_path(@dog) 
+            redirect_to admin_owner_path(@dog.owner.id) 
         else
             flash[:errors] = @dog.errors.full_messages 
-            redirect_to edit_owner_dog_path(@dog) 
+            redirect_to edit_admin_owner_dog_path(@dog) 
         end  
     end 
   
     def destroy 
         @dog.destroy 
-        redirect_to dogs_path
+        redirect_to admin_owner_path(params[:owner_id])
     end 
 
     private 
@@ -57,6 +55,6 @@ class DogsController < ApplicationController
     end 
 
     def find_dog
-        @dog = Dog.find(params[:id]) 
+        @dog = Dog.find(params[:id])
     end 
 end

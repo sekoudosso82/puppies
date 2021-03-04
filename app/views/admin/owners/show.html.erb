@@ -1,9 +1,9 @@
 <div class="container">
     <div class="linkDivColorRed">
-        <%= link_to "Go Home page", owners_path %>
+        <%= link_to "Go Home page", admin_owners_path %>
     </div>
     <div class="linkDivColorGreen">
-        <%= link_to "Add new dog", new_owner_dog_path({:owner_id => @owner.id}), method: :get  %>
+        <%= link_to "Add new dog", new_admin_owner_dog_path({:owner_id => @owner.id}), method: :get  %>
     </div>
     <% if @owner.owner_image.attachment != nil %> 
         <h3><%= image_tag(@owner.owner_image, class: "index-img") %></h3>
@@ -20,8 +20,8 @@
 
 
 
-    <%= link_to "Delete owner //", owner_path(@owner), method: :delete %>
-    <%= link_to "Edit owner", edit_owner_path(@owner) %>
+    <%= link_to "Delete owner //", admin_owner_path(@owner), method: :delete %>
+    <%= link_to "Edit owner", edit_admin_owner_path(@owner) %>
     
     <h4> DOGS OWNED </h4>
     <% @dogs.each do |dog| %>
@@ -31,17 +31,17 @@
             <h3> Name: <%= dog.name %></h3> 
             <h3> Age: <%= dog.age %></h3> 
             <h3> Color: <%= dog.color %></h3> 
-            <h3> Weight: <%= dog.weight %></h3>    <%= link_to "more detail /// ", dog_path(dog) %>
+            <h3> Weight: <%= dog.weight %></h3>    
         <% else %>
             <h3> Name: <%= dog.name %></h3> 
             <h3> Age: <%= dog.age %></h3> 
             <h3> Color: <%= dog.color %></h3>
             <h3> Weight: <%= dog.weight %></h3> 
    
-            <%= link_to "more detail /// ", owner_dog_path({:owner_id => @owner.id, :id => dog.id}, method: :get) %>
-        <% end %>
-
-        <%= link_to "Delete dog////", dog_path(dog), method: :delete %>
-        <%= link_to "Edit dog", edit_owner_dog_path({:owner_id => @owner.id, :id => dog.id}), method: :get  %>
+            <% end %>
+            
+        <%= link_to "more detail /// ", admin_owner_dog_path({:owner_id => @owner.id, :id => dog}), method: :get %>
+        <%= link_to "Delete dog////",  admin_owner_dog_path({:owner_id => @owner.id, :id => dog}), method: :delete %>
+        <%= link_to "Edit dog", edit_admin_owner_dog_path({:owner_id => @owner.id, :id => dog}), method: :get  %>
     <% end %>
 </div>

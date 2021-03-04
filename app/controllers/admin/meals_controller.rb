@@ -1,6 +1,5 @@
-class MealsController < ApplicationController
+class Admin::MealsController < ApplicationController
     before_action :find_meal, only: [:show, :edit, :update, :destroy]
-
     def index 
         @meals = Meal.all
     end 
@@ -9,15 +8,16 @@ class MealsController < ApplicationController
     end
     
     def new 
-        # byebug
-        @dog_id =  params[:dog_id].to_i
         @meal = Meal.new
+        @dog_id =  params[:dog_id].to_i
+        # byebug
     end 
   
     def create 
         @meal = Meal.create(meal_params)
+        @dog_id =  params[:meal][:dog_id].to_i
         if @meal.valid? 
-            redirect_to owner_dog_path(@meal.dog_id) 
+            redirect_to dog_meals_path(@meal.id)
         else
             flash[:errors] = @meal.errors.full_messages 
             redirect_to  new_dog_meal_path()  
@@ -25,22 +25,22 @@ class MealsController < ApplicationController
     end 
     
     def edit 
-        @dogs = Dog.all
+        @dog_id = params[:dog_id].to_i
+        # byebug
     end 
     
     def update
-        @meal.update(meal_params)
         if @meal.update(meal_params)
-            redirect_to meal_path(@meal.id) 
+            redirect_to dog_meal_path(@meal) 
         else
             flash[:errors] = @meal.errors.full_messages 
-            redirect_to edit_meal_path(@meal) 
+            redirect_to edit_dog_meal_path(@meal) 
         end  
     end 
   
     def destroy 
         @meal.destroy 
-        redirect_to meals_path
+        redirect_to dog_meals_path
     end 
 
     private 

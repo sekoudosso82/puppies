@@ -1,4 +1,4 @@
-<%= link_to "CANCEL!!!", owners_path %>
+<%= link_to "CANCEL!!!", admin_owners_path() %>
 
 <% if flash[:errors] %>
     <% flash[:errors].each do |e| %>
@@ -6,7 +6,7 @@
     <% end %>
 <% end %>
 
-<%= form_for @owner do |f| %>
+<%= form_for ([:admin, @owner]) do |f| %>
     <%= f.label :owner_image, "owner cover image" %>
     <%= f.file_field :owner_image %> <br>
 

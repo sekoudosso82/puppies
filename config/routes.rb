@@ -1,12 +1,14 @@
 Rails.application.routes.draw do 
-  root to: "owners#index"
-  resources :owners do
-    resources :dogs
+  root to: "admin/owners#index"
+  namespace :admin do
+    resources :owners do
+      resources :dogs
+    end 
+    resources :dogs, only: [:show] do
+      resources :meals
+    end
   end
 
-  resources :dogs do
-    resources :meals
-  end
   
   # resources :meals
   # resources :dogs
