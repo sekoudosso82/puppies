@@ -24,17 +24,22 @@
 
     <%= link_to "Delete dog //", admin_owner_dog_path({:owner_id => @dog.owner_id, :id => @dog.id}), method: :delete %>
     <%= link_to "Edit dog", edit_admin_owner_dog_path({:owner_id => @dog.owner_id, :id => @dog.id}), method: :get  %>
-
-    <h4> FED RECORD </h4>
+    <h4>********************************************************************* </h4>
+    <h4>**************************** FED RECORD  ************************** </h4>
+    <h4>********************************************************************* </h4>
+     
     <% @meals.each do |meal| %>
 
         <h3>Brand: <%= meal.brand %></h3> 
         <h3>Quantity: <%= meal.quantity %></h3> 
         <h3>Finished: <%= meal.finished %></h3> 
         <h3>Finished on: <%= meal.finished_on %></h3>     
-        <%= link_to "more detail /// ", admin_dog_meal_path(@dog.id, meal.id) %>
-        <%= link_to "Delete meal////", admin_dog_meal_path(@dog.id, meal.id), method: :delete %>
-        <%= link_to "Edit meal", edit_admin_dog_meal_path({:dog_id => @dog.id, :id => meal}), method: :get %>
+        <%= link_to "   more detail ", admin_dog_meal_path(@dog.id, meal.id) , class: "moreDetail"%>
+        <%= link_to "   Delete meal    ", admin_dog_meal_path(@dog.id, meal.id), method: :delete , class: "deleteLink"%>
+        <%= link_to "   Edit meal   ", edit_admin_dog_meal_path({:dog_id => @dog.id, :id => meal}), method: :get , class: "editLink"%> 
+        <h4>********************************************************************* </h4>
+        <h4>********************************************************************* </h4>
+     
 
     <% end %>
     

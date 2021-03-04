@@ -138,3 +138,19 @@ body {
     background-color:red;
     max-width: 10%;
   }
+
+  .moreDetail{
+    background-color:orange;
+    max-width: 10%;
+    margin-left: 5px;
+  }
+  .deleteLink{
+    background-color:red;
+    max-width: 10%;
+    margin-left: 5px;
+  }
+  .editLink{
+    background-color:greenyellow;
+    max-width: 10%;
+    margin-left: 5px;
+  }

@@ -6,7 +6,7 @@
     
     <%  @dogs.each do |dog| %>
     <div class="index-tile">
-        <h2><%= link_to "more detail", admin_dog_path(dog.id) %></h2>
+        <h2><%= link_to "more detail", admin_dog_path(dog.id) , class: "moreDetail" %></h2>
         <% if dog.dog_image.attachment != nil %> 
             <h3><%= image_tag(dog.dog_image, class: "index-img") %></h3>  
             <h3> Name: <%= dog.name %></h3> 
@@ -23,8 +23,8 @@
         <% end %> 
 
 
-        <%= button_to "Delete Dog", admin_dog_path(dog.id), method: :delete %>
-        <%= button_to "Edit Dog", edit_admin_owner_dog_path(dog.owner_id, dog.id), method: :get %>        
+        <%= button_to "Delete Dog", admin_dog_path(dog.id), method: :delete , class: "deleteLink"%>
+        <%= button_to "Edit Dog", edit_admin_owner_dog_path(dog.owner_id, dog.id), method: :get , class: "editLink"%>        
     </div>
     <%  end  %>
 </div>

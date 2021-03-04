@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2021_03_01_012515) do
     t.integer "dog_id", null: false
     t.string "brand"
     t.float "quantity"
-    t.boolean "finished", default: false
+    t.boolean "finished", default: true
     t.datetime "finished_on"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
