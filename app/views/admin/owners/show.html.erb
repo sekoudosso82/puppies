@@ -22,8 +22,9 @@
 
     <%= link_to "Delete owner //", admin_owner_path(@owner), method: :delete %>
     <%= link_to "Edit owner", edit_admin_owner_path(@owner) %>
-    
-    <h4> DOGS OWNED </h4>
+ <h4>********************************************************************* </h4>
+ <h4>**************************** DOGS OWNED  **************************** </h4>
+ <h4>********************************************************************* </h4>
     <% @dogs.each do |dog| %>
 
         <% if dog.dog_image.attachment != nil %> 
@@ -40,7 +41,7 @@
    
             <% end %>
             
-        <%= link_to "more detail /// ", admin_owner_dog_path({:owner_id => @owner.id, :id => dog}), method: :get %>
+        <%= link_to "fee dog /// ", admin_owner_dog_path({:owner_id => @owner.id, :id => dog}), method: :get %>
         <%= link_to "Delete dog////",  admin_owner_dog_path({:owner_id => @owner.id, :id => dog}), method: :delete %>
         <%= link_to "Edit dog", edit_admin_owner_dog_path({:owner_id => @owner.id, :id => dog}), method: :get  %>
     <% end %>

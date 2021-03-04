@@ -5,7 +5,7 @@
     
     <%  @owners.each do |owner| %>
     <div class="index-tile">
-        <h2><%= link_to "more detail", admin_owner_path(owner) %></h2>
+        <h2><%= link_to "Add dog/feed-dog", admin_owner_path(owner) %></h2>
 
         <% if owner.owner_image.attachment != nil %> 
             <h3><%= image_tag(owner.owner_image, class: "index-img") %></h3>  
