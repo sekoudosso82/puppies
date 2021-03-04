@@ -1,4 +1,12 @@
-<%= form_for @meal do |f| %>
+<%= link_to "CANCEL!!!", admin_owner_dog_path(@dog.owner.id, @dog.id) %>
+
+<% if flash[:errors] %>
+    <% flash[:errors].each do |e| %>
+        <%= e %>
+    <% end %>
+<% end %>
+<%= form_for ([:admin_dog, @meal]) do |f| %>
+    <%= f.hidden_field :dog_id, value: (@dog_id) %>
 
     <%= f.label :brand %>
     <%= f.text_field :brand %> <br>

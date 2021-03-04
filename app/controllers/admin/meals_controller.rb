@@ -5,9 +5,12 @@ class Admin::MealsController < ApplicationController
     end 
 
     def show 
+        @dog_id =  params[:dog_id].to_i
+        @owner_id = params[:owner_id].to_i
     end
     
     def new 
+        @dog = Dog.find(params[:dog_id].to_i)
         @meal = Meal.new
         @dog_id =  params[:dog_id].to_i
         # byebug
@@ -17,30 +20,37 @@ class Admin::MealsController < ApplicationController
         @meal = Meal.create(meal_params)
         @dog_id =  params[:meal][:dog_id].to_i
         if @meal.valid? 
-            redirect_to dog_meals_path(@meal.id)
+            redirect_to admin_dog_meal_path(@dog_id, @meal.id)
         else
             flash[:errors] = @meal.errors.full_messages 
-            redirect_to  new_dog_meal_path()  
+            redirect_to  new_admin_dog_meal_path()  
         end  
     end 
     
     def edit 
-        @dog_id = params[:dog_id].to_i
+        @dog = Dog.find(params[:dog_id].to_i)
+        @dog_id =  params[:dog_id].to_i
+
+        # @dog = params[:dog_id].to_i
+        # @meal_id = params[:id].to_i
         # byebug
     end 
     
     def update
+        # byebug
         if @meal.update(meal_params)
-            redirect_to dog_meal_path(@meal) 
+            redirect_to admin_dog_meal_path(@meal.dog_id, @meal.id) 
         else
             flash[:errors] = @meal.errors.full_messages 
-            redirect_to edit_dog_meal_path(@meal) 
+            redirect_to edit_admin_dog_meal_path(@meal.dog_id, @meal.id) 
         end  
     end 
   
     def destroy 
+        @dog_id =  params[:dog_id].to_i
+        @owner_id = params[:owner_id].to_i
         @meal.destroy 
-        redirect_to dog_meals_path
+        redirect_to admin_owner_dog_path(@owner_id, @dog_id)
     end 
 
     private 

@@ -3,6 +3,7 @@
         <%= link_to "Go Main page", admin_owner_path(@dog.owner.id) %>
     </div>
     <div class="linkDivColorGreen">
+
         <%= link_to "fed dog", new_admin_dog_meal_path({:dog_id => @dog.id}), method: :get  %>
     </div>
     
@@ -27,12 +28,14 @@
     <h4> FED RECORD </h4>
     <% @meals.each do |meal| %>
 
-    <h3>Brand: <%= meal.brand %></h3> 
-    <h3>Quantity: <%= meal.quantity %></h3> 
-    <h3>Finished: <%= meal.finished %></h3> 
-    <h3>Finished on: <%= meal.finished_on %></h3>     <%= link_to "more detail /// ", dog_meal_path(meal) %>
-    <%= link_to "Delete meal////", dog_meal_path(meal), method: :delete %>
-    <%= link_to "Edit meal", edit_dog_meal_path(meal), method: :get %>
+        <h3>Brand: <%= meal.brand %></h3> 
+        <h3>Quantity: <%= meal.quantity %></h3> 
+        <h3>Finished: <%= meal.finished %></h3> 
+        <h3>Finished on: <%= meal.finished_on %></h3>     
+        <%= link_to "more detail /// ", admin_dog_meal_path(@dog.id, meal.id) %>
+        <%= link_to "Delete meal////", admin_dog_meal_path(@dog.id, meal.id), method: :delete %>
+        <%= link_to "Edit meal", edit_admin_dog_meal_path({:dog_id => @dog.id, :id => meal}), method: :get %>
+
     <% end %>
     
 </div>
