@@ -63,8 +63,8 @@ rails db:create\
 rails db:migrate\
 rails db:seed\
 rails s\
-http://localhost:3000/reports/owners\ 
-http://localhost:3000/reports/dogs\
+http://localhost:3000/reports/owners \ 
+http://localhost:3000/reports/dogs \
 http://localhost:3000/reports/dogs/#id to see dog report 
 
 
