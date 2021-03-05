@@ -3,7 +3,6 @@
         <%= link_to "Go Home page", reports_owners_path %>
     </div>
     <div class="linkDivColorGreen">
-        <!-- <%= link_to "Add new dog", new_reports_owner_dog_path({:owner_id => @owner.id}), method: :get  %> -->
     </div>
     <% if @owner.owner_image.attachment != nil %> 
         <h3><%= image_tag(@owner.owner_image, class: "index-img") %></h3>
@@ -18,10 +17,6 @@
         <h3> Phone number: <%= @owner.phone_number %></h3>
     <% end %>
 
-
-
-    <!-- <%= link_to "Delete owner //", reports_owner_path(@owner), method: :delete %> -->
-    <!-- <%= link_to "Edit owner", edit_reports_owner_path(@owner) %> -->
  <h4>********************************************************************* </h4>
  <h4>**************************** DOGS OWNED  **************************** </h4>
  <h4>********************************************************************* </h4>
@@ -42,7 +37,5 @@
             <% end %>
             
         <%= link_to "dog detail", reports_owner_dog_path({:owner_id => @owner.id, :id => dog}), method: :get %>
-        <!-- <%= link_to "Delete dog////",  reports_owner_dog_path({:owner_id => @owner.id, :id => dog}), method: :delete %> -->
-        <!-- <%= link_to "Edit dog", edit_reports_owner_dog_path({:owner_id => @owner.id, :id => dog}), method: :get  %> -->
     <% end %>
 </div>

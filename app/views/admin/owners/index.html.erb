@@ -1,8 +1,6 @@
 
 <div class="index-container">
-    <%= button_to('Create New owner!', new_admin_owner_path, method: :get ) %>
-
-    
+    <%= button_to('Create New owner!', new_admin_owner_path, method: :get ) %> 
     <%  @owners.each do |owner| %>
     <div class="index-tile">
         <h2><%= link_to "Add dog/feed-dog", admin_owner_path(owner) %></h2>

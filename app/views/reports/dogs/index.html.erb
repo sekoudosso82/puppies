@@ -5,22 +5,22 @@
     </div>
     
     <%  @dogs.each do |dog| %>
-    <div class="index-tile">
-        <h2><%= link_to "more detail", reports_dog_path(dog.id) , class: "moreDetail"%></h2>
-        <% if dog.dog_image.attachment != nil %> 
-            <h3><%= image_tag(dog.dog_image, class: "index-img") %></h3>  
-            <h3> Name: <%= dog.name %></h3> 
-            <h3> Age: <%= dog.age %></h3> 
-            <h3> Color: <%= dog.color %></h3> 
-            <h3> Weight: <%= dog.weight %></h3>
-            <h3> Owner: <%= dog.owner.first_name %></h3> 
-        <% else %> 
-            <h3> Name: <%= dog.name %></h3> 
-            <h3> Age: <%= dog.age %></h3> 
-            <h3> Color: <%= dog.color %></h3> 
-            <h3> Weight: <%= dog.weight %></h3>
-            <h3> Owner: <%= dog.owner.first_name %></h3>
-        <% end %> 
-    </div>
+        <div class="index-tile">
+            <h2><%= link_to "more detail", reports_dog_path(dog.id) , class: "moreDetail"%></h2>
+            <% if dog.dog_image.attachment != nil %> 
+                <h3><%= image_tag(dog.dog_image, class: "index-img") %></h3>  
+                <h3> Name: <%= dog.name %></h3> 
+                <h3> Age: <%= dog.age %></h3> 
+                <h3> Color: <%= dog.color %></h3> 
+                <h3> Weight: <%= dog.weight %></h3>
+                <h3> Owner: <%= dog.owner.first_name %></h3> 
+            <% else %> 
+                <h3> Name: <%= dog.name %></h3> 
+                <h3> Age: <%= dog.age %></h3> 
+                <h3> Color: <%= dog.color %></h3> 
+                <h3> Weight: <%= dog.weight %></h3>
+                <h3> Owner: <%= dog.owner.first_name %></h3>
+            <% end %> 
+        </div>
     <%  end  %>
 </div>

@@ -3,6 +3,8 @@
     <h3>Brand: <%= @meal.brand %></h3> 
     <h3>Quantity: <%= @meal.quantity %></h3> 
     <h3>Finished: <%= @meal.finished %></h3> 
-    <h3>Finished on: <%= @meal.updated_at %></h3>     
+    <% if @meal.finished == true %> 
+        <h3>Finished on: <%= @meal.updated_at %></h3>     
+    <% end %>
     
 </div>

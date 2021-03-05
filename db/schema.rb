@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_01_012515) do
+ActiveRecord::Schema.define(version: 2021_03_05_145220) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2021_03_01_012515) do
     t.float "weight"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "is_deleted", default: false
     t.index ["owner_id"], name: "index_dogs_on_owner_id"
   end
 
@@ -52,6 +53,7 @@ ActiveRecord::Schema.define(version: 2021_03_01_012515) do
     t.datetime "finished_on"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "is_deleted", default: false
     t.index ["dog_id"], name: "index_meals_on_dog_id"
   end
 
@@ -62,6 +64,7 @@ ActiveRecord::Schema.define(version: 2021_03_01_012515) do
     t.integer "phone_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "is_deleted", default: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

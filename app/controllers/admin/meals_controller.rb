@@ -1,7 +1,7 @@
 class Admin::MealsController < ApplicationController
     before_action :find_meal, only: [:show, :edit, :update, :destroy]
     def index 
-        @meals = Meal.all
+        @meals = Meal.active 
     end 
 
     def show 
@@ -47,9 +47,12 @@ class Admin::MealsController < ApplicationController
     end 
   
     def destroy 
+        # byebug
+        # @meal.destroy 
         @dog_id =  params[:dog_id].to_i
         @owner_id = params[:owner_id].to_i
-        @meal.destroy 
+        @meal.update_attributes(is_deleted: true)
+
         redirect_to admin_owner_dog_path(@owner_id, @dog_id)
     end 
 

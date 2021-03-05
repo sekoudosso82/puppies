@@ -2,11 +2,12 @@ class Admin::DogsController < ApplicationController
     before_action :find_dog, only: [:show, :edit, :update, :destroy]
 
     def index 
-        @dogs = Dog.all
+        @dogs = Dog.active
     end 
     
     def show 
-        @meals = Meal.all.select{|meal| meal.dog.id ===  @dog.id}
+        @meals = Meal.active
+        @meals = @meals.select{|meal| meal.dog.id ===  @dog.id}
         # byebug
     end
     
@@ -44,7 +45,10 @@ class Admin::DogsController < ApplicationController
     end 
   
     def destroy 
-        @dog.destroy 
+        # @dog.destroy 
+        if @dog.update_attributes(is_deleted: true)
+            @dog.meals.update_all(is_deleted: true)
+        end
         redirect_to admin_owner_path(params[:owner_id])
     end 
 

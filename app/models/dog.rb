@@ -6,4 +6,6 @@ class Dog < ApplicationRecord
 
   has_many :meals, dependent: :destroy
 
+  scope :active, -> { where(is_deleted: false) }
+
 end

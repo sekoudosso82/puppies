@@ -2,10 +2,7 @@
     <div class="linkDivColorRed">
         <%= link_to "Go Main page", reports_dogs_path %>
     </div>
-    <div class="linkDivColorGreen">
-
-    </div>
-    
+   
     <% if @dog.dog_image.attachment != nil %> 
         <h3><%= image_tag(@dog.dog_image, class: "index-img") %></h3>  
         <h3> Name: <%= @dog.name %></h3> 
@@ -31,7 +28,6 @@
         <h3>Quantity: <%= meal.quantity %></h3> 
         <h3>Finished: <%= meal.finished %></h3> 
         <h3>Finished on: <%= meal.created_at %></h3>  
-        <h4>********************************************************************* </h4>
         <h4>********************************************************************* </h4>
     
     <% end %>
