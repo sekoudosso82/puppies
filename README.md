@@ -66,6 +66,8 @@ rails s\
 http://localhost:3000/reports/owners  \ 
 
 
-http://localhost:3000/reports/dogs/#id to see dog report 
+http://localhost:3000/reports/dogs/#id to see dog report\ 
+
+http://localhost:3000/reports/dogs 
 
 
