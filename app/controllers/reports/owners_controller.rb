@@ -10,10 +10,6 @@ class Reports::OwnersController < ApplicationController
         @dogs = @dogs.select{|dog| dog.owner.id ===  @owner.id}
     end
     
-    
-    
-    
-  
     private 
 
     def owner_params 

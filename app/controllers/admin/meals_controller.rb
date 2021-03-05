@@ -31,9 +31,6 @@ class Admin::MealsController < ApplicationController
         @dog = Dog.find(params[:dog_id].to_i)
         @dog_id =  params[:dog_id].to_i
 
-        # @dog = params[:dog_id].to_i
-        # @meal_id = params[:id].to_i
-        # byebug
     end 
     
     def update
