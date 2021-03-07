@@ -7,7 +7,7 @@ class Reports::DogsController < ApplicationController
     end 
     
     def show 
-        @meals = Meal.active
+        @meals = Meal.active.order("updated_at ASC")
         @meals = @meals.select{|meal| meal.dog.id ===  @dog.id}
         # byebug
     end

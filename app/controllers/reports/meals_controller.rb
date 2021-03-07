@@ -1,7 +1,7 @@
 class Reports::MealsController < ApplicationController
     before_action :find_meal, only: [:show, :edit, :update, :destroy]
     def index 
-        @meals = Meal.active 
+        @meals = Meal.active
     end 
 
     def show 
