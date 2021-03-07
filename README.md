@@ -54,6 +54,20 @@ rails g resource owner first_name last_name email phone_number:integer\
 rails g resource dog owner:belongs_to name age:integer color weight:float\
 rails g resource meal dog:belongs_to brand quantity:float finished:boolean finished_on:timestamps
 
+# Instructions 
+clone the repository\
+cd to puppies\
+bundle install\
+rails db:drop\
+rails db:create\
+rails db:migrate\
+rails db:seed\
+rails s\
+http://localhost:3000/reports/owners  \ 
 
+
+http://localhost:3000/reports/dogs/#id to see dog report\ 
+
+http://localhost:3000/reports/dogs 
 
 
