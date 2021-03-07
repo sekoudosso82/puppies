@@ -31,9 +31,11 @@
         <h3>Quantity: <%= meal.quantity %></h3> 
         <h3>Finished: <%= meal.finished %></h3>
         <% if meal.finished == true %> 
-            <h3>Finished on: <%= meal.created_at %></h3>  
-        <% end %>    
-        <%= link_to "   more detail ", admin_dog_meal_path(@dog.id, meal.id) , class: "moreDetail"%>
+            <h3>Finished on: <%= localize(meal.created_at, :format => :long) %></h3>  
+        <% else %>
+            <h3>Finished on: Not yet completed</h3>  
+        <% end %>       
+        <%= link_to "   Meal detail ", admin_dog_meal_path(@dog.id, meal.id) , class: "moreDetail"%>
         <%= link_to "   Delete meal    ", admin_dog_meal_path(@dog.id, meal.id), method: :delete , class: "deleteLink" %>
         <%= link_to "   Edit meal   ", edit_admin_dog_meal_path({:dog_id => @dog.id, :id => meal}), method: :get , class: "editLink" %> 
         <h4>********************************************************************* </h4>

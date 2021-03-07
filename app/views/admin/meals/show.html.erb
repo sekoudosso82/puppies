@@ -4,7 +4,9 @@
     <h3>Quantity: <%= @meal.quantity %></h3> 
     <h3>Finished: <%= @meal.finished %></h3> 
     <% if @meal.finished == true %> 
-        <h3>Finished on: <%= @meal.updated_at %></h3>     
+        <h3>Finished on: <%= localize(@meal.created_at, :format => :long) %></h3>  
+    <% else %>
+        <h3>Finished on: Not yet completed</h3>
     <% end %>
     
 </div>
