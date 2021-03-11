@@ -44,6 +44,11 @@ class Admin::OwnersControllerTest < ActionDispatch::IntegrationTest
   end 
 
 # update 
+test "update owner " do 
+  assert @owner.update({ email: "sekou@gmail.com", first_name: "Sekou", last_name: "Dosso", phone_number: 234 })
+  assert_equal "sekou@gmail.com", @owner.reload.email 
+end
+
   
 # destroy
   test "should destroy admin_owner" do
