@@ -6,7 +6,7 @@ class Admin::OwnersControllerTest < ActionDispatch::IntegrationTest
   #   assert_response :success
     
   # end 
-
+  # index 
   test "get all owners" do 
     get admin_owners_url
     assert_response :success 
@@ -37,5 +37,19 @@ class Admin::OwnersControllerTest < ActionDispatch::IntegrationTest
     assert owner.errors.include?(:email)
   end 
 
+  # edit 
+  test "edit owner" do 
+    get edit_admin_owner_url(@owner)
+    assert_response :success
+  end 
+
+# update 
+  
+# destroy
+  test "should destroy admin_owner" do
+    delete admin_owner_url(@owner)
+    assert_redirected_to admin_owners_url
+
+  end
 
 end
